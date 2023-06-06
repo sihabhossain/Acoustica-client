@@ -1,11 +1,45 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const Resgistration = () => {
+  const { createUser } = useContext(AuthContext);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const form = event.target;
+    const name = event.target.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    const confirmPassword = form.confirm.value;
+    const photoURL = form.photo.value;
+
+    const newUser = {
+      name,
+      email,
+      password,
+      confirmPassword,
+      photoURL,
+    };
+
+    createUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <div className="grid grid-cols-1   h-screen w-full">
       <div className="bg-gray-200 flex flex-col justify-center">
-        <form className="max-w-[400px] w-full mx-auto rounded-lg bg-gray-900 p-8 px-8">
+        <form
+          onSubmit={handleSubmit}
+          className="max-w-[400px] w-full mx-auto rounded-lg bg-gray-900 p-8 px-8"
+        >
           <h2 className="text-4xl dark:text-white font-bold text-center">
             Sign Up
           </h2>
