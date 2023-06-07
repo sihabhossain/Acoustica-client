@@ -1,7 +1,8 @@
 import React from "react";
+import TopSlider from "../../Components/TopSlider/TopSlider";
 
 const Home = () => {
-  return <div>Home page</div>;
+  return <TopSlider></TopSlider>;
 };
 
 export default Home;

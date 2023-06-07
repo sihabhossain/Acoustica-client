@@ -1,0 +1,38 @@
+[
+    {
+        "class": "Guitar",
+        "image": "https://img.freepik.com/free-photo/friends-with-guitar-party_23-2148115746.jpg?size=626&ext=jpg&ga=GA1.2.1983216414.1680192950&semt=ais",
+        "students": 40,
+        "price": 400
+    },
+    {
+        "class": "Piano",
+        "image": "https://img.freepik.com/free-photo/kids-being-part-sunday-school_23-2149582893.jpg?size=626&ext=jpg&ga=GA1.2.1983216414.1680192950&semt=ais",
+        "students": 35,
+        "price": 300
+    },
+    {
+        "class": "Drums",
+        "image": "https://img.freepik.com/free-photo/man-recording-music-drum-set-studio_1150-14709.jpg?size=626&ext=jpg&ga=GA1.1.1983216414.1680192950&semt=ais",
+        "students": 30,
+        "price": 500
+    },
+    {
+        "class": "Violin",
+        "image": "https://img.freepik.com/free-photo/portrait-cute-latin-girl-learning-how-play-violin-having-fun-preschool_662251-2637.jpg?size=626&ext=jpg&ga=GA1.1.1983216414.1680192950&semt=ais",
+        "students": 25,
+        "price": 200
+    },
+    {
+        "class": "Singing",
+        "image": "https://img.freepik.com/free-photo/friends-singing-karaoke-party_23-2148115676.jpg?size=626&ext=jpg&ga=GA1.1.1983216414.1680192950&semt=ais",
+        "students": 20,
+        "price": 340
+    },
+    {
+        "class": "Flute",
+        "image": "https://img.freepik.com/free-photo/young-woman-looking-paint-brushes-gray_114579-39985.jpg?size=626&ext=jpg&ga=GA1.2.1983216414.1680192950&semt=ais",
+        "students": 15,
+        "price": 100
+    }
+]
