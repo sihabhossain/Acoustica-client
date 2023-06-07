@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
+import { toast } from "react-hot-toast";
 
 const Resgistration = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, googleLogin } = useContext(AuthContext);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -25,14 +26,34 @@ const Resgistration = () => {
 
     createUser(email, password)
       .then((result) => {
-        const user = result.user;
-        console.log(user);
+        if (password !== confirmPassword) {
+          toast.error("password didnt matched");
+        } else {
+          const user = result.user;
+          console.log(user);
+
+          toast.success("User Created Successfully");
+        }
       })
       .catch((err) => {
         console.log(err);
+        toast.error(err.message);
       });
   };
 
+  // Google login
+  const handleGoogle = () => {
+    googleLogin()
+      .then((result) => {
+        const user = result.user;
+        toast.success("Successfully Logged in");
+        console.log(user);
+      })
+      .catch((err) => {
+        toast.error(err.message);
+        console.log(err);
+      });
+  };
   return (
     <div className="grid grid-cols-1   h-screen w-full">
       <div className="bg-gray-200 flex flex-col justify-center">
@@ -47,6 +68,7 @@ const Resgistration = () => {
                 className="rounded-lg bg-gray-700 mt-2 p-2 focus:border-blue-500 focus:bg-gray-800 focus:outline-none"
                 type="text"
                 name="name"
+                required
               />
             </div>
             <div className="flex flex-col text-gray-400 py-2">
@@ -55,6 +77,7 @@ const Resgistration = () => {
                 className="rounded-lg bg-gray-700 mt-2 p-2 focus:border-blue-500 focus:bg-gray-800 focus:outline-none"
                 type="text"
                 name="email"
+                required
               />
             </div>
             <div className="flex flex-col text-gray-400 py-2">
@@ -63,6 +86,7 @@ const Resgistration = () => {
                 className="p-2 rounded-lg bg-gray-700 mt-2 focus:border-blue-500 focus:bg-gray-800 focus:outline-none"
                 type="password"
                 name="password"
+                required
               />
             </div>
             <div className="flex flex-col text-gray-400 py-2">
@@ -71,6 +95,7 @@ const Resgistration = () => {
                 className="p-2 rounded-lg bg-gray-700 mt-2 focus:border-blue-500 focus:bg-gray-800 focus:outline-none"
                 type="password"
                 name="confirm"
+                required
               />
             </div>
             <div className="flex flex-col text-gray-400 py-2">
@@ -79,6 +104,7 @@ const Resgistration = () => {
                 className="p-2 rounded-lg bg-gray-700 mt-2 focus:border-blue-500 focus:bg-gray-800 focus:outline-none"
                 type="password"
                 name="photo"
+                required
               />
             </div>
 
@@ -87,7 +113,10 @@ const Resgistration = () => {
             </button>
           </form>
           <div>
-            <button className="w-full my-5 py-2 bg-[#0C4B65] shadow-lg shadow-teal-500/50 hover:shadow-teal-500/40 text-white font-semibold rounded-lg">
+            <button
+              onClick={handleGoogle}
+              className="w-full my-5 py-2 bg-[#0C4B65] shadow-lg shadow-teal-500/50 hover:shadow-teal-500/40 text-white font-semibold rounded-lg"
+            >
               Continue With Google
             </button>
           </div>
