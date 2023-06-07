@@ -1,13 +1,15 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { toast } from "react-hot-toast";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
 const Resgistration = () => {
-  const { createUser, googleLogin } = useContext(AuthContext);
+  const { createUser, googleLogin, updateUserProfile, setLoading } =
+    useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
   const [showPassword2, setShowPassword2] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -31,14 +33,26 @@ const Resgistration = () => {
       .then((result) => {
         if (password !== confirmPassword) {
           toast.error("password didnt matched");
+        } else if (!password.match(/[A-Z]/)) {
+          toast.error("Password should contain at least one capital letter");
+        } else if (!password.match(/[!@#$%^&*(),.?":{}|<>]/)) {
+          toast.error(
+            "Password should contain at least one special character."
+          );
         } else {
-          const user = result.user;
-          console.log(user);
-
-          toast.success("User Created Successfully");
+          updateUserProfile(name, photoURL)
+            .then(() => {
+              navigate("/");
+              toast.success("Signup successful");
+            })
+            .catch((err) => {
+              setLoading(false);
+              toast.error(err.message);
+            });
         }
       })
       .catch((err) => {
+        setLoading(false);
         console.log(err);
         toast.error(err.message);
       });
@@ -56,6 +70,7 @@ const Resgistration = () => {
     googleLogin()
       .then((result) => {
         const user = result.user;
+        navigate("/");
         toast.success("Successfully Logged in");
         console.log(user);
       })

@@ -82,7 +82,17 @@ const Navbar = () => {
           <li>
             <Link to="/dashboard">Dashboard </Link>
           </li>
-          <li>{user ? <p>{user?.email}</p> : ""}</li>
+          <li>
+            {user ? (
+              <img
+                className="h-16 w-16 rounded-full mb-2"
+                src={user?.photoURL}
+                alt=""
+              ></img>
+            ) : (
+              ""
+            )}
+          </li>
           <li>
             {user ? (
               <>

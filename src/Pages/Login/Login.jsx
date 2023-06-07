@@ -18,6 +18,7 @@ const Login = () => {
     Login(email, password)
       .then((result) => {
         const loggedUser = result.user;
+        navigate("/");
         toast.success("successfully logged in");
         console.log(loggedUser);
       })
@@ -36,12 +37,12 @@ const Login = () => {
     googleLogin()
       .then((result) => {
         const user = result.user;
+        navigate("/");
         toast.success("successfully logged in");
         console.log(user);
       })
       .catch((err) => {
         toast.error(err.message);
-        console.log(err);
       });
   };
 
