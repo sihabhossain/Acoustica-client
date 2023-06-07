@@ -1,10 +1,13 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { toast } from "react-hot-toast";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
 const Resgistration = () => {
   const { createUser, googleLogin } = useContext(AuthContext);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword2, setShowPassword2] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -39,6 +42,13 @@ const Resgistration = () => {
         console.log(err);
         toast.error(err.message);
       });
+  };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+  const togglePasswordVisibility2 = () => {
+    setShowPassword2(!showPassword2);
   };
 
   // Google login
@@ -84,19 +94,39 @@ const Resgistration = () => {
               <label>Password</label>
               <input
                 className="p-2 rounded-lg bg-gray-700 mt-2 focus:border-blue-500 focus:bg-gray-800 focus:outline-none"
-                type="password"
+                type={showPassword ? "text" : "password"}
                 name="password"
                 required
               />
+              <div
+                onClick={togglePasswordVisibility}
+                className="absolute ml-[300px] mt-10"
+              >
+                {showPassword ? (
+                  <AiFillEyeInvisible className="h-6 w-6" />
+                ) : (
+                  <AiFillEye className="h-6 w-6" />
+                )}
+              </div>
             </div>
             <div className="flex flex-col text-gray-400 py-2">
               <label>Confirm Password</label>
               <input
                 className="p-2 rounded-lg bg-gray-700 mt-2 focus:border-blue-500 focus:bg-gray-800 focus:outline-none"
-                type="password"
+                type={showPassword2 ? "text" : "password"}
                 name="confirm"
                 required
               />
+              <div
+                onClick={togglePasswordVisibility2}
+                className="absolute ml-[300px] mt-10"
+              >
+                {showPassword2 ? (
+                  <AiFillEyeInvisible className="h-6 w-6" />
+                ) : (
+                  <AiFillEye className="h-6 w-6" />
+                )}
+              </div>
             </div>
             <div className="flex flex-col text-gray-400 py-2">
               <label>PhotoURL</label>

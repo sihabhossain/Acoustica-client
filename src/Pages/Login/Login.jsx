@@ -1,10 +1,12 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { Toaster, toast } from "react-hot-toast";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
 const Login = () => {
   const { Login, googleLogin } = useContext(AuthContext);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -23,6 +25,10 @@ const Login = () => {
         toast.error(err.message);
         console.log(err);
       });
+  };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
   };
 
   // Google Sign In
@@ -59,10 +65,20 @@ const Login = () => {
               <div className="flex flex-col text-gray-400 py-2">
                 <label>Password</label>
                 <input
-                  className="p-2 rounded-lg bg-gray-700 mt-2 focus:border-blue-500 focus:bg-gray-800 focus:outline-none"
-                  type="password"
+                  className="relative p-2 rounded-lg bg-gray-700 mt-2 focus:border-blue-500 focus:bg-gray-800 focus:outline-none"
+                  type={showPassword ? "text" : "password"}
                   name="password"
                 />
+                <div
+                  onClick={togglePasswordVisibility}
+                  className="absolute ml-[300px] mt-10"
+                >
+                  {showPassword ? (
+                    <AiFillEyeInvisible className="h-6 w-6" />
+                  ) : (
+                    <AiFillEye className="h-6 w-6" />
+                  )}
+                </div>
               </div>
 
               <button className="w-full my-5 py-2 bg-[#0C4B65] shadow-lg shadow-teal-500/50 hover:shadow-teal-500/40 text-white font-semibold rounded-lg">
