@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
+import ProfileCard from "../Login/ProfileCard/ProfileCard";
 
 const Navbar = () => {
   const { user, LogOut } = useContext(AuthContext);
@@ -79,20 +80,12 @@ const Navbar = () => {
           <li>
             <Link to="/classes">Classes</Link>
           </li>
-          <li>
-            <Link to="/dashboard">Dashboard </Link>
-          </li>
-          <li>
-            {user ? (
-              <img
-                className="h-16 w-16 rounded-full mb-2"
-                src={user?.photoURL}
-                alt=""
-              ></img>
-            ) : (
-              ""
-            )}
-          </li>
+          {user && (
+            <li>
+              <Link to="/dashboard">Dashboard </Link>
+            </li>
+          )}
+          {user && <li>{user ? <ProfileCard></ProfileCard> : ""}</li>}
           <li>
             {user ? (
               <>
