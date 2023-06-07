@@ -13,7 +13,9 @@ const PopularClass = () => {
   }, []);
   return (
     <div className="my-20 ">
-      <h2 className="text-center my-10 text-4xl font-bold">Popular Classes</h2>
+      <h2 className="text-center my-10 text-4xl font-bold text-green-300">
+        Popular Classes
+      </h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10 ">
         {classData.map((single) => (
           <SinglePopular single={single} key={single.price}></SinglePopular>

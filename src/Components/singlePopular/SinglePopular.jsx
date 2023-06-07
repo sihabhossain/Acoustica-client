@@ -6,7 +6,11 @@ const SinglePopular = ({ single }) => {
     <>
       <div className="card w-96 bg-base-100 shadow-sm">
         <figure>
-          <img src={single.image} alt="Shoes" />
+          <img
+            className="hover:scale-125 transition"
+            src={single.image}
+            alt="Shoes"
+          />
         </figure>
         <div className="card-body">
           <h2 className="card-title">Class: {single.class}</h2>
