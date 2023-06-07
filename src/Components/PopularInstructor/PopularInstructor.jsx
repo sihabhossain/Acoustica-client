@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import SingleInstructor from "../SingleInstructor/SingleInstructor";
-
+import "./FancyUnderline.css";
 const PopularInstructor = () => {
   const [instructor, setInstructor] = useState([]);
 
@@ -14,7 +14,7 @@ const PopularInstructor = () => {
 
   return (
     <div>
-      <h2 className="text-center my-10 text-4xl font-bold text-green-300">
+      <h2 className="text-center my-10 text-4xl font-bold text-[#8ACDBC] fancy-underline">
         Popular Instructors
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10 my-20">
