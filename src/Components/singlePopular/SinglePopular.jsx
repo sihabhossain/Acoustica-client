@@ -9,7 +9,7 @@ const SinglePopular = ({ single }) => {
           <img
             className="hover:scale-125 transition"
             src={single.image}
-            alt="Shoes"
+            alt="img"
           />
         </figure>
         <div className="card-body">
