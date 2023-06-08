@@ -3,7 +3,7 @@ import React from "react";
 const Footer = () => {
   return (
     <div>
-      <footer className="footer p-10 bg-[#8ACDBC] text-black">
+      <footer className="footer p-10 bg-[#0C4B65] text-white">
         <div>
           <span className="footer-title">Services</span>
           <a className="link link-hover">Branding</a>
@@ -25,7 +25,7 @@ const Footer = () => {
           <a className="link link-hover">Cookie policy</a>
         </div>
       </footer>
-      <footer className="footer px-10 py-4 border-t bg-[#8ACDBC] text-black border-base-300">
+      <footer className="footer px-10 py-4 border-t bg-[#0C4B65] text-white border-base-300">
         <div className="items-center grid-flow-col">
           <img
             src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/external-bass-music-flaticons-lineal-color-flat-icons.png"

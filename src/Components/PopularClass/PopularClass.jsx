@@ -14,7 +14,7 @@ const PopularClass = () => {
   }, []);
   return (
     <div className="my-20 ">
-      <h2 className="text-center my-10 text-4xl font-bold text-[#8ACDBC] fancy-underline">
+      <h2 className="text-center my-10 text-4xl font-bold text-[#0C4B65] fancy-underline">
         Popular Classes
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-10">

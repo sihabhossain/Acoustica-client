@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import ProfileCard from "../Login/ProfileCard/ProfileCard";
+import { toast } from "react-hot-toast";
 
 const Navbar = () => {
   const { user, LogOut } = useContext(AuthContext);
@@ -11,7 +12,7 @@ const Navbar = () => {
     LogOut()
       .then(() => {})
       .catch((err) => {
-        console.log(err);
+        toast.error(err.message);
       });
   };
 
@@ -62,7 +63,7 @@ const Navbar = () => {
               src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/external-bass-music-flaticons-lineal-color-flat-icons.png"
               alt="external-bass-music-flaticons-lineal-color-flat-icons"
             />
-            <div className="text-[#8ACDBC]">
+            <div className="text-[#0C4B65]">
               <p className="mt-3 text-3xl font-semibold">Acoustica</p>
               <small>music school</small>
             </div>
@@ -70,7 +71,7 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal text-[#8ACDBC] px-1 text-lg font-semibold">
+        <ul className="menu menu-horizontal text-[#0C4B65] px-1 text-lg font-semibold">
           <li>
             <Link to="/">Home</Link>
           </li>
@@ -91,7 +92,7 @@ const Navbar = () => {
               <>
                 <button
                   onClick={handleLogout}
-                  className="bg-[#8ACDBC] text-white hover:bg-slate-400 px-4"
+                  className="bg-[#0C4B65] text-white hover:bg-slate-400 px-4"
                 >
                   Logout
                 </button>

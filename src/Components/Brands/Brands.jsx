@@ -12,7 +12,7 @@ import img10 from "../../assets/brands/Promark-logo-jpg.webp";
 const Brands = () => {
   return (
     <>
-      <h2 className=" my-10 text-4xl font-bold text-[#8ACDBC] fancy-underline">
+      <h2 className=" my-10 text-4xl font-bold text-[#0C4B65] fancy-underline">
         Our Brands
       </h2>
       <div className="md:flex my-10">
