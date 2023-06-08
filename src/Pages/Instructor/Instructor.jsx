@@ -16,7 +16,7 @@ const Instructor = () => {
     // Simulate component loading
     setTimeout(() => {
       setIsLoading(false); // Set loading state to false after some time
-    }, 2000);
+    }, 200);
   }, []);
 
   if (isLoading) {
