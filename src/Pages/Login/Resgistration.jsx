@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { toast } from "react-hot-toast";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+import axios from "axios";
 
 const Resgistration = () => {
   const { createUser, googleLogin, updateUserProfile, setLoading } =
@@ -42,6 +43,19 @@ const Resgistration = () => {
         } else {
           updateUserProfile(name, photoURL)
             .then(() => {
+              // save user to database
+              axios
+                .put("http://localhost:5000/users", {
+                  name,
+                  email,
+                })
+                .then((response) => {
+                  console.log(response);
+                })
+                .catch((error) => {
+                  console.log(error);
+                });
+
               navigate("/");
               toast.success("Signup successful");
             })
@@ -70,6 +84,18 @@ const Resgistration = () => {
     googleLogin()
       .then((result) => {
         const user = result.user;
+        // save user to database
+        axios
+          .put("http://localhost:5000/users", {
+            name: user.displayName,
+            email: user.email,
+          })
+          .then((response) => {
+            console.log(response);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
         navigate("/");
         toast.success("Successfully Logged in");
         console.log(user);
