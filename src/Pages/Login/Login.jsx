@@ -42,7 +42,7 @@ const Login = () => {
 
         // save user to database
         axios
-          .put("http://localhost:5000/users", {
+          .post("http://localhost:5000/users", {
             name: user.displayName,
             email: user.email,
           })

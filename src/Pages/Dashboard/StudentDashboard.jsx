@@ -3,6 +3,7 @@ import Navbar from "../Navbar/Navbar";
 import { Link, Outlet } from "react-router-dom";
 import Footer from "../Footer/Footer";
 import Container from "../../Components/Container/Container";
+import { AiFillRightSquare, AiOutlineInsertRowRight } from "react-icons/ai";
 
 const StudentDashboard = () => {
   return (
@@ -28,10 +29,15 @@ const StudentDashboard = () => {
               <ul className="menu p-4 w-80 h-full bg-blue-950 text-white">
                 {/* Sidebar content here */}
                 <li className="text-2xl font-bold">
-                  <Link to="/dashboard/my-selected">My Selected Classes</Link>
+                  <Link to="/dashboard/my-selected">
+                    <AiFillRightSquare></AiFillRightSquare> My Selected Classes
+                  </Link>
                 </li>
                 <li className="text-2xl font-bold">
-                  <Link to="/dashboard/my-enrolled">My Enrolled Classes</Link>
+                  <Link to="/dashboard/my-enrolled">
+                    <AiOutlineInsertRowRight></AiOutlineInsertRowRight> My
+                    Enrolled Classes
+                  </Link>
                 </li>
               </ul>
             </div>

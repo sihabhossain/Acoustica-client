@@ -8,6 +8,8 @@ import Classes from "../Pages/Classes/Classes";
 import Dashboard from "../Pages/Dashboard/Dashboard";
 import Myselected from "../Pages/Dashboard/Myselected";
 import MyEnrolled from "../Pages/Dashboard/MyEnrolled";
+import ManageUsers from "../Pages/Dashboard/ManageUsers";
+import ManageClasses from "../Pages/Dashboard/ManageClasses";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +49,14 @@ const router = createBrowserRouter([
       {
         path: "my-enrolled",
         element: <MyEnrolled></MyEnrolled>,
+      },
+      {
+        path: "manage-users",
+        element: <ManageUsers></ManageUsers>,
+      },
+      {
+        path: "manage-classes",
+        element: <ManageClasses></ManageClasses>,
       },
     ],
   },
