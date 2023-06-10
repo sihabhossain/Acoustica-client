@@ -24,6 +24,21 @@ const ManageUsers = () => {
       });
   };
 
+  // make instructor
+  const handleMakeInstructor = (user) => {
+    fetch(`http://localhost:5000/users/instructor/${user._id}`, {
+      method: "PATCH",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount) {
+          refetch();
+          toast.success("User Updated as Instructor");
+        }
+      });
+  };
+
   return (
     <div>
       <div className="overflow-x-auto">
@@ -46,7 +61,14 @@ const ManageUsers = () => {
                 <td>{user.email}</td>
                 <td>
                   {user.role === "admin" ? (
-                    "Admin"
+                    <>
+                      <button
+                        disabled={true}
+                        className="btn btn-ghost bg-indigo-600 rounded-full text-white"
+                      >
+                        <AiOutlineUserSwitch></AiOutlineUserSwitch>
+                      </button>
+                    </>
                   ) : (
                     <button
                       onClick={() => handleMakeAdmin(user)}
@@ -57,9 +79,24 @@ const ManageUsers = () => {
                   )}
                 </td>
                 <td>
-                  <button className="btn btn-ghost bg-red-500 text-white rounded-full">
-                    <AiOutlineBook></AiOutlineBook>
-                  </button>
+                  {user.role === "instructor" ? (
+                    <>
+                      {" "}
+                      <button
+                        disabled={true}
+                        className="btn btn-ghost bg-red-500 text-white rounded-full"
+                      >
+                        <AiOutlineBook></AiOutlineBook>
+                      </button>
+                    </>
+                  ) : (
+                    <button
+                      onClick={() => handleMakeInstructor(user)}
+                      className="btn btn-ghost bg-red-500 text-white rounded-full"
+                    >
+                      <AiOutlineBook></AiOutlineBook>
+                    </button>
+                  )}
                 </td>
               </tr>
             ))}

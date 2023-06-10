@@ -2,11 +2,13 @@ import React from "react";
 import StudentDashboard from "./StudentDashboard";
 import AdminDashboard from "./AdminDashboard";
 import InstructorDashboard from "./InstructorDashboard";
+import useAdmin from "../../Hooks/useAdmin";
+import useInstructor from "../../Hooks/useInstructor";
 
 const Dashboard = () => {
   // todo
-  const isAdmin = true;
-  const isInstructor = false;
+  const [isAdmin] = useAdmin();
+  const [isInstructor] = useInstructor();
   const isStudent = false;
 
   return (
