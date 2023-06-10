@@ -1,13 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { toast } from "react-hot-toast";
-import {
-  AiFillDelete,
-  AiOutlineBook,
-  AiOutlineDelete,
-  AiOutlineUserSwitch,
-  AiTwotoneBook,
-} from "react-icons/ai";
+import { AiOutlineBook, AiOutlineUserSwitch } from "react-icons/ai";
 
 const ManageUsers = () => {
   const { data: users = [], refetch } = useQuery(["users"], async () => {
