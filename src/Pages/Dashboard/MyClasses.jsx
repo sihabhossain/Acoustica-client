@@ -1,16 +1,15 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 
-const Myselected = () => {
-  const [mySelected, setMyselected] = useState([]);
+const MyClasses = () => {
+  const [myClass, setMyClass] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/my-selected").then((res) => {
-      setMyselected(res.data);
+    axios.get("http://localhost:5000/add-class").then((res) => {
+      setMyClass(res.data);
+      console.log(myClass);
     });
   }, []);
-
-  const handleEnroll = () => {};
 
   return (
     <div>
@@ -24,34 +23,31 @@ const Myselected = () => {
                 <th>Name</th>
                 <th>image</th>
                 <th>Instructor</th>
-                <th>Pay Fee</th>
-                <th>Delete Class</th>
+                <th>Status</th>
+                <th>Students</th>
+                <th>Feedback</th>
+                <th>Update</th>
               </tr>
             </thead>
             <tbody>
-              {mySelected.map((selected, index) => (
-                <tr key={selected._id}>
+              {myClass.map((single, index) => (
+                <tr key={single._id}>
                   <th>{index + 1}</th>
-                  <td>{selected.name}</td>
+                  <td>{single.name}</td>
                   <td>
                     <div className="avatar">
                       <div className="w-10 rounded">
-                        <img src={selected.image} />
+                        <img src={single?.image} />
                       </div>
                     </div>
                   </td>
-                  <td>{selected.instructor}</td>
-                  <td>
-                    <button
-                      onClick={handleEnroll}
-                      className="btn btn-ghost bg-indigo-500 rounded-full"
-                    >
-                      Pay ${selected.price}
-                    </button>
-                  </td>
+                  <td>{single.instructor}</td>
+                  <td>{single.status}</td>
+                  <td>0 Students</td>
+                  <td> </td>
                   <td>
                     <button className="btn btn-ghost bg-red-500 rounded-full">
-                      Delete
+                      Update
                     </button>
                   </td>
                 </tr>
@@ -64,4 +60,4 @@ const Myselected = () => {
   );
 };
 
-export default Myselected;
+export default MyClasses;

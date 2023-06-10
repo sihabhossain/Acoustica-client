@@ -27,13 +27,13 @@ const InstructorDashboard = () => {
             <ul className="menu p-4 w-80 h-full bg-blue-950 text-white">
               {/* Sidebar content here */}
               <li className="text-2xl font-bold">
-                <Link to="/dashboard/my-selected">
+                <Link to="/dashboard/add-class">
                   {" "}
                   <AiFillBook></AiFillBook> Add a Class
                 </Link>
               </li>
               <li className="text-2xl font-bold">
-                <Link to="/dashboard/my-enrolled">
+                <Link to="/dashboard/my-classes">
                   {" "}
                   <AiOutlineAccountBook></AiOutlineAccountBook> My Classes
                 </Link>
