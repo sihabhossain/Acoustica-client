@@ -45,6 +45,7 @@ const Login = () => {
           .post("http://localhost:5000/users", {
             name: user.displayName,
             email: user.email,
+            role: "student",
           })
           .then((response) => {
             console.log(response);
