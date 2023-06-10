@@ -6,14 +6,25 @@ import { toast } from "react-hot-toast";
 const SingleClass = ({ single }) => {
   const { user } = useContext(AuthContext);
 
-  const handleEnroll = () => {
+  const handleSelect = () => {
     if (user) {
-      return;
+      fetch("http://localhost:5000/my-selected", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(single),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.insertedId) {
+            toast.success("Successfully added ");
+          }
+        });
     } else {
       toast.error("Please login to enroll");
     }
   };
-
   return (
     <>
       <div className="card w-96 bg-base-100 shadow-sm">
@@ -31,11 +42,11 @@ const SingleClass = ({ single }) => {
           <p>Fee: ${single.price}</p>
           <div className="card-actions justify-end">
             <Link
-              onClick={handleEnroll}
+              onClick={handleSelect}
               to="/classes"
               className="btn btn-outline btn-accent"
             >
-              Enroll Now
+              Select
             </Link>
           </div>
         </div>
