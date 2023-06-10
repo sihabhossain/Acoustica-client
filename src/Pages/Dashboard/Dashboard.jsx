@@ -1,21 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import StudentDashboard from "./StudentDashboard";
 import AdminDashboard from "./AdminDashboard";
 import InstructorDashboard from "./InstructorDashboard";
 import useAdmin from "../../Hooks/useAdmin";
 import useInstructor from "../../Hooks/useInstructor";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const Dashboard = () => {
-  // todo
+  const { user } = useContext(AuthContext);
   const [isAdmin] = useAdmin();
   const [isInstructor] = useInstructor();
-  const isStudent = false;
 
   return (
     <div>
       {isAdmin && <AdminDashboard></AdminDashboard>}
       {isInstructor && <InstructorDashboard></InstructorDashboard>}
-      {isStudent && <StudentDashboard></StudentDashboard>}
+      {user && <StudentDashboard></StudentDashboard>}
     </div>
   );
 };
