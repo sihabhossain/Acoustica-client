@@ -7,7 +7,6 @@ const MyClasses = () => {
   useEffect(() => {
     axios.get("http://localhost:5000/add-class").then((res) => {
       setMyClass(res.data);
-      console.log(myClass);
     });
   }, []);
 
@@ -21,10 +20,10 @@ const MyClasses = () => {
               <tr>
                 <th></th>
                 <th>Name</th>
-                <th>image</th>
                 <th>Instructor</th>
+                <th>Image</th>
                 <th>Status</th>
-                <th>Students</th>
+
                 <th>Feedback</th>
                 <th>Update</th>
               </tr>
@@ -34,17 +33,18 @@ const MyClasses = () => {
                 <tr key={single._id}>
                   <th>{index + 1}</th>
                   <td>{single.name}</td>
+
+                  <td>{single.instructor}</td>
                   <td>
                     <div className="avatar">
                       <div className="w-10 rounded">
-                        <img src={single?.image} />
+                        <img src={single.photo} />
                       </div>
                     </div>
                   </td>
-                  <td>{single.instructor}</td>
                   <td>{single.status}</td>
-                  <td>0 Students</td>
-                  <td> </td>
+
+                  <th></th>
                   <td>
                     <button className="btn btn-ghost bg-red-500 rounded-full">
                       Update
