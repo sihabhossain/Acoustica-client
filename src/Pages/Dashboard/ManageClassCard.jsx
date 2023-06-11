@@ -1,12 +1,22 @@
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
+import React, { useState } from "react";
 import { toast } from "react-hot-toast";
+import Modal from "../../Components/Modal/Modal";
 
 const ManageClassCard = ({ single, index }) => {
-  const { data: singles = [], refetch } = useQuery(["singles"], async () => {
-    const res = await fetch("http://localhost:5000/manage-classes");
-    return res.json();
-  });
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  // const { data: singles = [], refetch } = useQuery(["singles"], async () => {
+  //   const res = await fetch("http://localhost:5000/manage-classes");
+  //   return res.json();
+  // });
 
   // approve
   const handleApprove = (single) => {
@@ -43,6 +53,9 @@ const ManageClassCard = ({ single, index }) => {
         }
       });
   };
+
+  // send feedback
+
   return (
     <div>
       <thead>
@@ -72,8 +85,12 @@ const ManageClassCard = ({ single, index }) => {
         <td>{single.status}</td>
         <td>0 Students</td>
         <td>
-          <button className="btn btn-ghost bg-red-500 rounded-full">
+          <button
+            onClick={openModal}
+            className="btn btn-ghost bg-red-500 rounded-full"
+          >
             Feedback
+            {/* Modal */}
           </button>
         </td>
         <td>
@@ -111,6 +128,12 @@ const ManageClassCard = ({ single, index }) => {
           )}
         </td>
       </tr>
+      <Modal
+        single={single}
+        isModalOpen={isModalOpen}
+        openModal={openModal}
+        closeModal={closeModal}
+      ></Modal>
     </div>
   );
 };

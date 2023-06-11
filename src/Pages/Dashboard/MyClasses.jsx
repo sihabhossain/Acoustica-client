@@ -44,7 +44,9 @@ const MyClasses = () => {
                   </td>
                   <td>{single.status}</td>
 
-                  <th></th>
+                  <th>
+                    {single.status === "denied" ? <p>{single.feedback}</p> : ""}
+                  </th>
                   <td>
                     <button className="btn btn-ghost bg-red-500 rounded-full">
                       Update
