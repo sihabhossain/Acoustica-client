@@ -5,9 +5,11 @@ const MyClasses = () => {
   const [myClass, setMyClass] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/add-class").then((res) => {
-      setMyClass(res.data);
-    });
+    axios
+      .get("https://acoustica-server-sihabhossain.vercel.app/add-class")
+      .then((res) => {
+        setMyClass(res.data);
+      });
   }, []);
 
   return (

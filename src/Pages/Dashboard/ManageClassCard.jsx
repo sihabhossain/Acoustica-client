@@ -14,19 +14,22 @@ const ManageClassCard = ({ single, index }) => {
   };
 
   // const { data: singles = [], refetch } = useQuery(["singles"], async () => {
-  //   const res = await fetch("http://localhost:5000/manage-classes");
+  //   const res = await fetch("https://acoustica-server-sihabhossain.vercel.app/manage-classes");
   //   return res.json();
   // });
 
   // approve
   const handleApprove = (single) => {
-    fetch(`http://localhost:5000/approved-classes/${single._id}`, {
-      method: "PATCH",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(single),
-    })
+    fetch(
+      `https://acoustica-server-sihabhossain.vercel.app/approved-classes/${single._id}`,
+      {
+        method: "PATCH",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(single),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount) {
@@ -38,13 +41,16 @@ const ManageClassCard = ({ single, index }) => {
 
   // deny
   const handleDeny = (single) => {
-    fetch(`http://localhost:5000/denied-classes/${single._id}`, {
-      method: "PATCH",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(single),
-    })
+    fetch(
+      `https://acoustica-server-sihabhossain.vercel.app/denied-classes/${single._id}`,
+      {
+        method: "PATCH",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(single),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount) {

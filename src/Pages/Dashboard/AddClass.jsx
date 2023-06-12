@@ -28,11 +28,16 @@ const AddClass = () => {
       photo,
     };
 
-    axios.post("http://localhost:5000/add-class", newClass).then((res) => {
-      if (res.data.insertedId) {
-        toast.success("Class Added");
-      }
-    });
+    axios
+      .post(
+        "https://acoustica-server-sihabhossain.vercel.app/add-class",
+        newClass
+      )
+      .then((res) => {
+        if (res.data.insertedId) {
+          toast.success("Class Added");
+        }
+      });
   };
   return (
     <div className="bg-gray-500  p-24">

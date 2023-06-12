@@ -8,7 +8,7 @@ const SingleClass = ({ single }) => {
 
   const handleSelect = () => {
     if (user) {
-      fetch("http://localhost:5000/my-selected", {
+      fetch("https://acoustica-server-sihabhossain.vercel.app/my-selected", {
         method: "POST",
         headers: {
           "content-type": "application/json",

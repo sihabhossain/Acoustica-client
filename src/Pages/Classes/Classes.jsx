@@ -7,9 +7,11 @@ const Classes = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/classes").then((response) => {
-      setClasses(response.data);
-    });
+    axios
+      .get("https://acoustica-server-sihabhossain.vercel.app/classes")
+      .then((response) => {
+        setClasses(response.data);
+      });
   }, []);
 
   useEffect(() => {

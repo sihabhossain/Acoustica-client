@@ -13,13 +13,16 @@ const Modal = ({ isModalOpen, single, closeModal }) => {
       data,
     };
 
-    fetch(`http://localhost:5000/feedback/${single._id}`, {
-      method: "PATCH",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(feedBack),
-    })
+    fetch(
+      `https://acoustica-server-sihabhossain.vercel.app/feedback/${single._id}`,
+      {
+        method: "PATCH",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(feedBack),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

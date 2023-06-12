@@ -42,7 +42,7 @@ const Login = () => {
 
         // save user to database
         axios
-          .post("http://localhost:5000/users", {
+          .post("https://acoustica-server-sihabhossain.vercel.app/users", {
             name: user.displayName,
             email: user.email,
             role: "student",

@@ -45,11 +45,14 @@ const Resgistration = () => {
             .then(() => {
               // save user to database
               axios
-                .post("http://localhost:5000/users", {
-                  name,
-                  email,
-                  role: "student",
-                })
+                .post(
+                  "https://acoustica-server-sihabhossain.vercel.app/users",
+                  {
+                    name,
+                    email,
+                    role: "student",
+                  }
+                )
                 .then((response) => {
                   console.log(response);
                 })
@@ -87,7 +90,7 @@ const Resgistration = () => {
         const user = result.user;
         // save user to database
         axios
-          .post("http://localhost:5000/users", {
+          .post("https://acoustica-server-sihabhossain.vercel.app/users", {
             name: user.displayName,
             email: user.email,
             role: "student",

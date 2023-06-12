@@ -6,9 +6,11 @@ const ManageClasses = () => {
   const [myClass, setMyClass] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/manage-classes").then((res) => {
-      setMyClass(res.data);
-    });
+    axios
+      .get("https://acoustica-server-sihabhossain.vercel.app/manage-classes")
+      .then((res) => {
+        setMyClass(res.data);
+      });
   }, []);
 
   return (

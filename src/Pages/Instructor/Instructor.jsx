@@ -7,9 +7,11 @@ const Instructor = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/instructors").then((response) => {
-      setInstructors(response.data);
-    });
+    axios
+      .get("https://acoustica-server-sihabhossain.vercel.app/instructors")
+      .then((response) => {
+        setInstructors(response.data);
+      });
   }, []);
 
   useEffect(() => {

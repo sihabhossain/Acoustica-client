@@ -5,9 +5,11 @@ const Myselected = () => {
   const [mySelected, setMyselected] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/my-selected").then((res) => {
-      setMyselected(res.data);
-    });
+    axios
+      .get("https://acoustica-server-sihabhossain.vercel.app/my-selected")
+      .then((res) => {
+        setMyselected(res.data);
+      });
   }, []);
 
   const handleEnroll = () => {};
