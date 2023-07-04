@@ -1,14 +1,24 @@
-#Acoustica
-1. A famous Music School Website
-2. Featuring one of the best Music Instructors.
-3. Online courses to learn
-4. Select your favourite Instructor
-5. it contains dashboards for each student , admin and instructor
+#Summer Sports Adventure Camp
+Get your kids enrolled in the summer camp today! P.S. our summer camp is focused on sports.
 
-Used Technologies:
-1.ReactJs
-2.MongoDB
-3.ExpressJS
-4.NodeJS
+##Website Features
+Features
 
-#LIVE LINK :
+1.Simple Authentication system, also includes Google SignIn
+2.Students can enroll into various fun summer camp activities
+2.Instructors can add classes
+3.Admin can verify classes
+4.Admin can manage users
+
+#Technologies and Packages
+##Technologies
+
+1.HTML
+2.CSS, TailwindCSS, DaisyUI
+3.JavaScript
+4.React
+5.Node
+7.Express Packages
+8.React Router Dom
+9.React Icons
+10.dotenv
